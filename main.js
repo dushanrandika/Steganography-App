@@ -6,6 +6,12 @@ const path = require('path')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+// Enable live reload for Electron too
+require('electron-reload')(__dirname, {
+  // Note that the path to electron may vary according to the main file
+  electron: require(`${__dirname}/node_modules/electron`)
+});
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
